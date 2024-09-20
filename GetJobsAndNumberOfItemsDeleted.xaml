@@ -1,0 +1,289 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetJobsAndNumberOfItemsDeleted" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="535,2276" sap2010:WorkflowViewState.IdRef="GetJobsAndNumberOfItemsDeleted_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DataCleaner;assembly=DataService.DataCleaner" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uasj="clr-namespace:UiPath.Activities.System.Jobs;assembly=UiPath.System.Activities" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Activities.System.Jobs</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>DataCleaner</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.DataService.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>DataService.DataCleaner</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Get All Jobs " DisplayName="GetJobsAndNumberOfItemsDeleted" sap:VirtualizedContainerService.HintSize="496,2171" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IEnumerable(ui:OrchestratorJob)" Name="ienOrchJobs" />
+      <Variable x:TypeArguments="ui:OrchestratorJob" Name="orchJobNewest" />
+      <Variable x:TypeArguments="s:DateTime" Name="datetimeMarginDate" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsHotelSearchStatus" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsFlights" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsHotels" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsHotelRoomsOptions" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsPassengersFares" />
+      <Variable x:TypeArguments="x:Int64" Name="out_intTotalRecordsPassengersRooms" />
+      <Variable x:TypeArguments="scg:IList(d:BAHSOSRHotelsRoomsOptions)" Name="OutputRecords" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - start" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Get Jobs And Number Of Items Deleted starts!&quot;]" />
+    <ui:GetJobs Filter="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Jobs DataCleaner" sap:VirtualizedContainerService.HintSize="434,144" sap2010:WorkflowViewState.IdRef="GetJobs_1" Result="[ienOrchJobs]">
+      <ui:GetJobs.FilterBuilder>
+        <uasj:JobFilterSettings Index="0" LogicalOperator="And">
+          <uasj:JobFilterSettings.Filters>
+            <scg:List x:TypeArguments="uasj:JobFilterElement" Capacity="4">
+              <uasj:JobFilterElement DateValue="{x:Null}" GuidValue="{x:Null}" Criteria="ReleaseName" DateOperator="NewerThan" EnumOperator="Equals" GuidOperator="Equals" PriorityValue="Low" StateValue="Pending" StringOperator="Contains" StringValue="DataCleaner" />
+              <uasj:JobFilterElement GuidValue="{x:Null}" StringValue="{x:Null}" Criteria="CreationTime" DateOperator="NewerThan" DateValue="[now.adddays(-3)]" EnumOperator="Equals" GuidOperator="Equals" PriorityValue="Low" StateValue="Pending" StringOperator="Equals" />
+            </scg:List>
+          </uasj:JobFilterSettings.Filters>
+          <uasj:JobFilterSettings.Groups>
+            <scg:List x:TypeArguments="uasj:JobFilterSettings" Capacity="0" />
+          </uasj:JobFilterSettings.Groups>
+        </uasj:JobFilterSettings>
+      </ui:GetJobs.FilterBuilder>
+    </ui:GetJobs>
+    <Assign DisplayName="Assign orchJobNewest" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="ui:OrchestratorJob">[orchJobNewest]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="ui:OrchestratorJob">[ienOrchJobs(ienOrchJobs.Count-1)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign datetimeMarginDate" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:DateTime">[datetimeMarginDate]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:DateTime">[convert.todatetime(orchJobNewest.StartTime).AddHours(-168)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[string.format(&quot;Margin Date :{0} ; start time: {1}&quot;,datetimeMarginDate.tostring,orchJobNewest.StartTime.tostring)]" />
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRHotelsSearchStatus" OutputRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records HotelSearchStatus" EntityId="487c5765-0ef7-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_1" QueriedEntityId="487c5765-0ef7-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsHotelSearchStatus]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRFlights" OutputRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records Flights" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_3" QueriedEntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsFlights]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRHotels" OutputRecords="{x:Null}" ContinueOnError="False" DisplayName=" Query Entity Records Hotels" EntityId="1a376322-61e0-ee11-85f9-0022489f653e" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_4" QueriedEntityId="1a376322-61e0-ee11-85f9-0022489f653e" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsHotels]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRHotelsRoomsOptions" ContinueOnError="False" DisplayName="Query Entity Records Hotels Rooms Options" EntityId="64625fa4-10f7-ee11-aaf2-000d3ab844da" ExpansionDepth="1" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_5" OutputRecords="[OutputRecords]" QueriedEntityId="64625fa4-10f7-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsHotelRoomsOptions]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRPassengersFares" OutputRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records Passengers Fares" EntityId="bd15c70c-b119-ef11-96f5-000d3ab405d7" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_6" QueriedEntityId="bd15c70c-b119-ef11-96f5-000d3ab405d7" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsPassengersFares]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRPassangersRooms" OutputRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records PassangersRooms" EntityId="c7c344d3-d611-ef11-96f5-000d3ab405d7" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_7" QueriedEntityId="c7c344d3-d611-ef11-96f5-000d3ab405d7" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[out_intTotalRecordsPassengersRooms]">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="CreateTime" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="&lt;" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="s:DateTimeOffset">[datetimeMarginDate]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <ui:LogMessage DisplayName="Log Message - end" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Get Jobs And Number Of Items Deleted ends!&quot;]" />
+  </Sequence>
+</Activity>
