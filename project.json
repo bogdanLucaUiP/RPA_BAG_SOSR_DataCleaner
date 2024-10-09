@@ -52,11 +52,11 @@
     },
     "fileInfoCollection": [
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "046c86b6-43d9-4ca4-8e0e-cba2ac79d13e",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "TestCase_DataCleaner.xaml"
+        "fileName": "Tests\\TestCase_DataCleaner.xaml"
       }
     ],
     "saveToCloud": false
