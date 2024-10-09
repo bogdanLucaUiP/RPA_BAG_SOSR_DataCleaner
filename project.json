@@ -53,13 +53,12 @@
     "fileInfoCollection": [
       {
         "editingStatus": "InProgress",
-        "testCaseId": "751fc54d-3572-4e49-a967-01647cc12235",
+        "testCaseId": "046c86b6-43d9-4ca4-8e0e-cba2ac79d13e",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "TestCase_SOSR_DataCleaner.xaml"
+        "fileName": "TestCase_DataCleaner.xaml"
       }
     ],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",

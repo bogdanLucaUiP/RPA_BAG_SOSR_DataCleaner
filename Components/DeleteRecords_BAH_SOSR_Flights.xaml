@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>690,2650</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>678,2774</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DeleteRecords_BAH_SOSR_Flights_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -39,6 +39,8 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>DataCleaner</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -99,9 +101,11 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Delete All Entities for Flights Entity." DisplayName="DeleteRecords_BAH_SOSR_Flights" sap:VirtualizedContainerService.HintSize="648,2585" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Delete All Entities for Flights Entity." DisplayName="DeleteRecords_BAH_SOSR_Flights" sap:VirtualizedContainerService.HintSize="688,2669" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int64" Name="intNumberOfRecords" />
       <Variable x:TypeArguments="x:Double" Name="dblNumberOfHours" />
@@ -110,7 +114,7 @@
       <Variable x:TypeArguments="scg:List(s:Guid)" Name="enumIDs" />
       <Variable x:TypeArguments="x:Int64" Name="intOldNumberOfRecords" />
       <Variable x:TypeArguments="x:Int64" Default="0" Name="intMaxConsecutiveEqualNumberOfRecords" />
-      <Variable x:TypeArguments="x:Int64" Default="0" Name="intTotalRecordsDeleted" />
+      <Variable x:TypeArguments="x:Int64" Name="intInitialTotalRecords" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -118,8 +122,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message start" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;DeleteRecords_BAH_SOSR_Flights starts&quot;]" />
-    <Assign DisplayName="Assign dbl Number of Hours" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:LogMessage DisplayName="Log Message start" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;DeleteRecords_BAH_SOSR_Flights starts&quot;]" />
+    <Assign DisplayName="Assign dbl Number of Hours" sap:VirtualizedContainerService.HintSize="626,114" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Double">[dblNumberOfHours]</OutArgument>
       </Assign.To>
@@ -127,7 +131,7 @@
         <InArgument x:TypeArguments="x:Double">[cdbl(in_Config("HoursFlights").tostring)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign datetimeMarginDate" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign datetimeMarginDate" sap:VirtualizedContainerService.HintSize="626,114" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="s:DateTime">[datetimeMarginDate]</OutArgument>
       </Assign.To>
@@ -135,7 +139,7 @@
         <InArgument x:TypeArguments="s:DateTime">[now.AddHours(-dblNumberOfHours)]</InArgument>
       </Assign.Value>
     </Assign>
-    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRFlights" ContinueOnError="False" DisplayName="Query Entity Records BAH SOSR Flights" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="586,140" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_2" OutputRecords="[ilstEntityRecords]" QueriedEntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[intNumberOfRecords]">
+    <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRFlights" ContinueOnError="False" DisplayName="Query Entity Records BAH SOSR Flights" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="626,172" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_2" OutputRecords="[ilstEntityRecords]" QueriedEntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[intNumberOfRecords]">
       <uda:QueryEntityRecords.FilterArguments>
         <uda:FilterArgument FilterActivityType="{x:Null}">
           <uda:FilterArgument.Filter>
@@ -158,15 +162,24 @@
         </scg:List>
       </uda:QueryEntityRecords.FilterValues>
     </uda:QueryEntityRecords>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[intNumberOfRecords&gt;0 and intMaxConsecutiveEqualNumberOfRecords&lt;3]" DisplayName="While intNumberOfRecords" sap:VirtualizedContainerService.HintSize="586,1472" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="[cint(in_Config(&quot;MaxIterations&quot;))]">
+    <Assign DisplayName="Assign intInitialTotalRecords" sap:VirtualizedContainerService.HintSize="626,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int64">[intInitialTotalRecords]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int64">[intNumberOfRecords]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message Initial Records" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Data Cleaner for BAH_SOSR_Flights should delete &quot;+intInitialTotalRecords.tostring +&quot;records&quot;]" />
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[intNumberOfRecords&gt;0 and intMaxConsecutiveEqualNumberOfRecords&lt;3]" DisplayName="While intNumberOfRecords" sap:VirtualizedContainerService.HintSize="626,1353" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="[cint(in_Config(&quot;MaxIterations&quot;))]">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1336" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,1207" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Extract the Id's" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign DisplayName="Extract the Id's" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:List(s:Guid)">[enumIDs]</OutArgument>
             </Assign.To>
@@ -174,16 +187,8 @@
               <InArgument x:TypeArguments="scg:List(s:Guid)">[ilstEntityRecords.Select(Function(entry) entry.Id).tolist()]</InArgument>
             </Assign.Value>
           </Assign>
-          <uda:DeleteMultipleEntityRecords x:TypeArguments="d:BAHSOSRFlights" FailedRecords="{x:Null}" ContinueBatchOnFailure="True" ContinueOnError="False" DisplayName="Delete Multiple Entity Records" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" sap:VirtualizedContainerService.HintSize="510,140" sap2010:WorkflowViewState.IdRef="DeleteMultipleEntityRecords`1_1" InputRecords="[enumIDs]" TimeoutInMs="30000" />
-          <Assign DisplayName="Assign intTotalRecordsDeleted" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_8">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:Int64">[intTotalRecordsDeleted]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:Int64">[intTotalRecordsDeleted+intNumberOfRecords]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign DisplayName="Assign intOldNumberOfRecords" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <uda:DeleteMultipleEntityRecords x:TypeArguments="d:BAHSOSRFlights" FailedRecords="{x:Null}" ContinueBatchOnFailure="True" ContinueOnError="False" DisplayName="Delete Multiple Entity Records" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" sap:VirtualizedContainerService.HintSize="530,172" sap2010:WorkflowViewState.IdRef="DeleteMultipleEntityRecords`1_1" InputRecords="[enumIDs]" TimeoutInMs="30000" />
+          <Assign DisplayName="Assign intOldNumberOfRecords" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int64">[intOldNumberOfRecords]</OutArgument>
             </Assign.To>
@@ -191,7 +196,7 @@
               <InArgument x:TypeArguments="x:Int64">[intNumberOfRecords]</InArgument>
             </Assign.Value>
           </Assign>
-          <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRFlights" ContinueOnError="False" DisplayName="Query Entity Records BAH SOSR Flights" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="510,140" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_3" OutputRecords="[ilstEntityRecords]" QueriedEntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[intNumberOfRecords]">
+          <uda:QueryEntityRecords x:TypeArguments="d:BAHSOSRFlights" ContinueOnError="False" DisplayName="Query Entity Records BAH SOSR Flights" EntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="530,172" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_3" OutputRecords="[ilstEntityRecords]" QueriedEntityId="7d1c739f-6cf6-ee11-aaf2-000d3ab844da" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="1000" TotalRecords="[intNumberOfRecords]">
             <uda:QueryEntityRecords.FilterArguments>
               <uda:FilterArgument FilterActivityType="{x:Null}">
                 <uda:FilterArgument.Filter>
@@ -214,15 +219,15 @@
               </scg:List>
             </uda:QueryEntityRecords.FilterValues>
           </uda:QueryEntityRecords>
-          <If Condition="[intNumberOfRecords&lt;999 AndAlso intNumberOfRecords=intOldNumberOfRecords]" DisplayName="If Consecutive number of records" sap:VirtualizedContainerService.HintSize="510,522" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[intNumberOfRecords&lt;999 AndAlso intNumberOfRecords=intOldNumberOfRecords]" DisplayName="If Consecutive number of records" sap:VirtualizedContainerService.HintSize="530,547" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign Increment consecutiveNumberOfRecords" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign DisplayName="Assign Increment consecutiveNumberOfRecords" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_6">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int64">[intMaxConsecutiveEqualNumberOfRecords]</OutArgument>
                   </Assign.To>
@@ -233,13 +238,13 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign reinitialize consecutiveNumberOfRecords" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign DisplayName="Assign reinitialize consecutiveNumberOfRecords" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_7">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int64">[intMaxConsecutiveEqualNumberOfRecords]</OutArgument>
                   </Assign.To>
@@ -253,7 +258,7 @@
         </Sequence>
       </ui:InterruptibleWhile.Body>
     </ui:InterruptibleWhile>
-    <ui:LogMessage DisplayName="Log Message Still Remaining items" sap:VirtualizedContainerService.HintSize="586,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Still remaining items : &quot;+intNumberOfRecords.tostring]" />
-    <ui:LogMessage DisplayName="Log Message intTotalRecordsDeleted" sap:VirtualizedContainerService.HintSize="586,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Total of Records deleted from BAHSOSRFlights : &quot;+intTotalRecordsDeleted.ToString]" />
+    <ui:LogMessage DisplayName="Log Message Still Remaining items" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Still remaining items : &quot;+intNumberOfRecords.tostring]" />
+    <ui:LogMessage DisplayName="Log Message intTotalRecordsDeleted" sap:VirtualizedContainerService.HintSize="626,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Total of Records deleted from BAHSOSRFlights : &quot;+(intInitialTotalRecords-intNumberOfRecords).ToString]" />
   </Sequence>
 </Activity>
