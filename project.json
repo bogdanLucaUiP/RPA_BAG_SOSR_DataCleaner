@@ -4,7 +4,7 @@
   "description": "Data Cleaner process for SOSR. Delete entities older than X hours.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.DataService.Activities": "[23.10.0]",
+    "UiPath.DataService.Activities": "[24.11.1]",
     "UiPath.Excel.Activities": "[2.22.3]",
     "UiPath.System.Activities": "[23.10.3]",
     "UiPath.Testing.Activities": "[23.10.0]",
@@ -14,14 +14,14 @@
   "entitiesStores": [
     {
       "serviceDocument": ".entities/EntitiesStore.json",
-      "tenantName": "IAG_Production",
+      "tenantName": "IAG_AppsDev",
       "namespace": "DataCleaner",
-      "uniqueReference": "YVEQMRlBx9SWEgFuqCg6A1iXk60dG9jMBMclKNCsepY="
+      "uniqueReference": "Rt5B7jHf/vVSYQ2v7IAj3g7ukx8DFb6yXr5KJlxTZ04="
     }
   ],
   "schemaVersion": "4.0",
   "studioVersion": "23.10.2.0",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.5",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
