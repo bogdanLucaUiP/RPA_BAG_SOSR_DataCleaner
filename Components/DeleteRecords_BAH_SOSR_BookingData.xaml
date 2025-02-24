@@ -105,7 +105,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Delete All Entities for Flights Entity." DisplayName="DeleteRecords_BAH_SOSR_Flights" sap:VirtualizedContainerService.HintSize="646,2551" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Delete All Entities for Flights Entity." DisplayName="DeleteRecords_BAH_SOSR_Flights" sap:VirtualizedContainerService.HintSize="732,2551" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int64" Name="intNumberOfRecords" />
       <Variable x:TypeArguments="x:Double" Name="dblNumberOfHours" />
@@ -170,7 +170,7 @@
         <InArgument x:TypeArguments="x:Int64">[intNumberOfRecords]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message Initial Records" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Data Cleaner for BAH_SOSR_Flights should delete &quot;+intInitialTotalRecords.tostring +&quot;records&quot;]" />
+    <ui:LogMessage DisplayName="Log Message Initial Records" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Data Cleaner for BAH_SOSR_BookingData should delete &quot;+intInitialTotalRecords.tostring +&quot;records&quot;]" />
     <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[intNumberOfRecords&gt;0 and intMaxConsecutiveEqualNumberOfRecords&lt;3]" DisplayName="While intNumberOfRecords" sap:VirtualizedContainerService.HintSize="570,1300" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="[cint(in_Config(&quot;MaxIterations&quot;))]">
       <ui:InterruptibleWhile.Body>
         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="536,1154" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -187,7 +187,7 @@
               <InArgument x:TypeArguments="scg:List(s:Guid)">[ilstEntityRecords.Select(Function(entry) entry.Id).tolist()]</InArgument>
             </Assign.Value>
           </Assign>
-          <uda:DeleteMultipleEntityRecords x:TypeArguments="d:BAHSOSRFlights" FailedRecords="{x:Null}" sap2010:Annotation.AnnotationText="enumIds" ContinueBatchOnFailure="True" ContinueOnError="False" DisplayName="Delete Multiple Entity Records" EntityId="15a25b3d-69ad-ef11-88cd-002248997c1b" sap:VirtualizedContainerService.HintSize="502,203" sap2010:WorkflowViewState.IdRef="DeleteMultipleEntityRecords`1_1" InputRecords="[enumIDs]" TimeoutInMs="30000">
+          <uda:DeleteMultipleEntityRecords x:TypeArguments="d:BAHSOSRBookingData" FailedRecords="{x:Null}" sap2010:Annotation.AnnotationText="enumIds" ContinueBatchOnFailure="True" ContinueOnError="False" DisplayName="Delete Multiple Entity Records" EntityId="d9c65843-69ad-ef11-88cd-002248997c1b" sap:VirtualizedContainerService.HintSize="502,203" sap2010:WorkflowViewState.IdRef="DeleteMultipleEntityRecords`1_1" InputRecords="[enumIDs]" TimeoutInMs="30000">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
